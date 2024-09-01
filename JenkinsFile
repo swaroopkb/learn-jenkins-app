@@ -19,7 +19,7 @@ pipeline {
             // Agent creation
             agent {
                 docker {
-                    image 'my-playwright'
+                    image 'node:18-alpine'
                     reuseNode true
                 }
             }
@@ -44,7 +44,7 @@ pipeline {
                 stage('Unit Test'){
                     agent {
                         docker {
-                            image 'my-playwright'
+                            image 'node:18-alpine'
                             reuseNode true
                         }
                     }
@@ -70,8 +70,7 @@ pipeline {
                     }
                     steps{
                         sh '''
-                        npm install serve
-                        node_modules/.bin/serve -s build &
+                        serve -s build &
                         sleep 10
                         npx playwright test --reporter=html
                         '''
