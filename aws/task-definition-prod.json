@@ -6,9 +6,9 @@
     "containerDefinitions": [
         {
             "name": "learnjenkinsapp",
-            "image": "471112878416.dkr.ecr.ap-south-1.amazonaws.com/learnjenkinsapp:1.0.106",
+            "image": "471112878416.dkr.ecr.ap-south-1.amazonaws.com/learnjenkinsapp:#APP_VERSION#",
             "portMappings": [{
-                "name": "nginx-80-tip",
+                "name": "nginx-80-tcp",
                 "containerPort": 80,
                 "hostPort": 80,
                 "protocol": "tcp",
